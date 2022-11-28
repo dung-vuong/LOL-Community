@@ -6,7 +6,7 @@
 - CVC: 242
 - ZIP: 42424
 
-![Screenshot (345)](https://user-images.githubusercontent.com/79184498/182231367-e1b50644-2987-4972-9632-f15bafc32d60.png)
+{screenshot link}
 
 
 ## ⬇️ What I have done ⬇️
@@ -16,4 +16,4 @@
 - Use Stripe to handle payment method (APIs to accept payments, send payouts, and manage their businesses online)
 
 ## ⬇️ Demo Run ⬇️ 
-https://user-images.githubusercontent.com/79184498/182233097-9417c00f-38ae-4c67-9f71-2d247afd2c50.mp4
+{video link}
