@@ -31,9 +31,9 @@ const NavBar = () => {
                 SEARCH 
             </div>
             <div>
-                {user
+                {userProfile
                     ? (
-                        <div>Logged In</div>
+                        <div>{userProfile.userName}</div>
                     ) 
                     : (
                         <GoogleLogin
