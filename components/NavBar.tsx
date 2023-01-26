@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { AiOutlineLogout } from 'react-icons/ai'
+import { HiOutlineLogout } from 'react-icons/hi'
 import { GoogleLogin, googleLogout} from '@react-oauth/google'
 import { BiSearch } from 'react-icons/bi'
 import { IoMdAdd } from 'react-icons/io'
@@ -62,13 +62,12 @@ const NavBar = () => {
                             </Link>
                             <button 
                                 type='button'
-                                className='border-2 p-2 rounded-full cursor-pointer outline-none'
                                 onClick={() => {
                                     googleLogout()
                                     removeUser()
                                 }}
                             >
-                                <AiOutlineLogout color='0060ff' fontSize={21}/>
+                                <HiOutlineLogout color='0060ff' fontSize={27}/>
                             </button>
                         </div>
                     ) 
