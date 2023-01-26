@@ -7,11 +7,10 @@ import { AiFillHome, AiOutlineMenu } from 'react-icons/ai'
 import { ImCancelCircle } from 'react-icons/im'
 import Discover from './Discover'
 import SuggestedAccounts from './SuggestedAccounts'
-import Footer from './Footer'
 
 const SideBar = () => {
     const [showSidebar, setShowSidebar] = useState(true);
-    const normalLink = 'flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#F51997] rounded'
+    const normalLink = 'flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#0060ff] rounded'
     const userProfile = false
 
     return (
@@ -28,13 +27,12 @@ const SideBar = () => {
                         <Link href="/">
                             <div className={normalLink}>
                                 <p className='text-2xl'><AiFillHome/></p>
-                                <span className='text-xl hidden xl:block'>For You</span>
+                                <span className='text-xl hidden xl:block'>Home</span>
                             </div>
                         </Link>
                     </div>
                     <Discover/>
                     <SuggestedAccounts/>
-                    <Footer/>
                 </div>
             )}
         </div>
