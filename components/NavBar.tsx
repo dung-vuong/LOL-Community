@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import { HiOutlineLogout } from 'react-icons/hi'
 import { GoogleLogin, googleLogout} from '@react-oauth/google'
 import { BiSearch } from 'react-icons/bi'
+import { RiTeamFill } from 'react-icons/ri'
 import { IoMdAdd } from 'react-icons/io'
 import Logo from '../utils/logo.png'
 import { createOrGetUser } from '../utils'
@@ -54,10 +55,16 @@ const NavBar = () => {
                                     </>
                                 </Link>
                             )}
+                            <Link href="/teamup">
+                                <button className='border-2 text-[#0060ff] border-[#397ff0] hover:bg-blue-100 rounded-md px-2 md:px-4 text-md font-semibold flex items-center gap-1'>
+                                    <RiTeamFill className='text-xl' />{' '}
+                                    <span className='hidden md:block'>Team Up</span>
+                                </button>
+                            </Link>
                             <Link href="/upload">
-                                <button className='border-2 px-2 md:px-4 text-md font-semibold flex items-center gap-2'>
+                                <button className='border-2 text-[#0060ff] border-[#397ff0] hover:bg-blue-100 rounded-md px-2 md:px-4 text-md font-semibold flex items-center gap-1'>
                                     <IoMdAdd className='text-xl' />{' '}
-                                    <span className='hidden md:block'>Upload </span>
+                                    <span className='hidden md:block'>Upload</span>
                                 </button>
                             </Link>
                             <button 

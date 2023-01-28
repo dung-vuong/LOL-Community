@@ -68,18 +68,18 @@ const Upload = () => {
     }
 
     const handleDiscard = async () => {
-
+        router.push('/')
     }
 
     return (
-        <div className='flex w-full h-full absolute left-0 top-[60px] lg:top-[70px] mb-10 pt-10 lg:pt-20 bg-[#F8F8F8] justify-center'>
-            <div className='bg-white rounded-lg xl:h-[80vh] flex gap-6 flex-wrap justify-center items-center p-14 pt-6'>
+        <div className='flex w-full h-full absolute left-0 top-[60px] lg:top-[70px] mb-10 pt-10 bg-[#f3f7fd] justify-center'>
+            <div className='bg-white rounded-lg xl:h-[90vh] flex gap-6 flex-wrap justify-center items-center p-14 pt-6'>
                 <div>
                     <div>
                         <p className='text-2xl font-bold'>Upload Video</p>
                         <p className='text-md text-gray-400 mt-1'>Post a video to your account</p>
                     </div>
-                    <div className='border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center  outline-none mt-10 w-[260px] h-[458px] p-10 cursor-pointer hover:border-red-300 hover:bg-gray-100'>
+                    <div className='border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center  outline-none mt-10 w-[260px] h-[458px] p-10 cursor-pointer hover:border-gray-300 hover:bg-gray-50'>
                         {isLoading 
                             ? (
                                 <p>Uploading</p>
@@ -109,7 +109,7 @@ const Upload = () => {
                                         )
                                         : (
                                             <label className='curson-pointer'>
-                                                <div className='flex flex-col items-center justify-center h-full'>
+                                                <div className='flex flex-col items-center justify-center h-full cursor-pointer'>
                                                     <div className='flex flex-col justify-center items-center'>
                                                         <p className='font-bold text-xl'><FaCloudUploadAlt className='text-gray-300 text-6xl' /></p>
                                                         <p className='text-xl font-semibold'>Upload Video</p>
@@ -120,7 +120,7 @@ const Upload = () => {
                                                         Up to 10 minutes <br />
                                                         Less than 2 GB
                                                     </p>
-                                                    <p className='bg-[#F51997] text-center mt-8 rounded text-white text-md font-medium p-2 w-52 outline-none'>
+                                                    <p className='bg-[#0060ff] text-center mt-8 rounded text-white text-md font-medium p-2 w-52 outline-none'>
                                                         Select file
                                                     </p>
                                                 </div>
@@ -171,7 +171,7 @@ const Upload = () => {
                         <button
                             onClick={handleDiscard}
                             type='button'
-                            className='border-gray-300 border-2 text-md font-medium p-2 rounded w-28 lg:w-44 outline-none'
+                            className='border-sky-600 text-sky-600 border-2 hover:bg-[#0060ff] hover:text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none cursor-pointer'
                         >
                             Discard
                         </button>
@@ -179,7 +179,7 @@ const Upload = () => {
                             disabled={videoAsset?.url ? false : true}
                             onClick={handlePost}
                             type='button'
-                            className='bg-[#F51997] text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none'
+                            className='bg-[#0060ff] border-sky-600 border-2 hover:text-sky-600 hover:bg-sky-100 text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none cursor-pointer'
                         >
                             {savingPost ? 'Posting...' : 'Post'}
                         </button>
