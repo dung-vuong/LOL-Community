@@ -5,18 +5,27 @@ import { NextPage } from 'next';
 import useAuthStore from '../store/authStore';
 
 interface IProps {
-  likes: any;
-  flex: string;
+  likes: any[];
   handleLike: () => void;
   handleDislike: () => void;
 }
 
-const LikeButton = ({likes, flex, handleLike, handleDislike}: IProps) => {
+const LikeButton = ({likes, handleLike, handleDislike}: IProps) => {
     const [alreadyLiked, setAlreadyLiked] = useState(false)
     const {userProfile}: any = useAuthStore()
+    const filtedLikes = likes?.filter((item) => item._ref === userProfile?._id)
+
+    useEffect(() => {
+        if(filtedLikes?.length > 0){
+            setAlreadyLiked(true)
+        }
+        else{
+            setAlreadyLiked(false)
+        }
+    }, [filtedLikes, likes])
 
     return (
-        <div className={`${flex} gap-6`}>
+        <div className='flex gap-6'>
             <div className='mt-4 flex flex-col justify-center items-center cursor-pointer'>
                 {alreadyLiked ? (
                     <div className='hover:bg-primary rounded-full p-2 md:p-4 text-[#F51997]' onClick={handleDislike} >
