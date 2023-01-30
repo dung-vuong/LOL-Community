@@ -25,6 +25,10 @@ const Detail = ({postDetails}: IProps) => {
     const [post, setPost] = useState(postDetails)
     const [isPlaying, setIsPlaying] = useState(false)
     const [isVideoMuted, setIsVideoMuted] = useState(false)
+
+    const [comment, setComment] = useState('')
+    const [isPosting, setIsPosting] = useState(false)
+
     const videoRef = useRef<HTMLVideoElement>(null)
     const router = useRouter()
     const {userProfile}: any = useAuthStore()
@@ -54,6 +58,21 @@ const Detail = ({postDetails}: IProps) => {
             })
 
             setPost({...post, likes: data.likes})
+        }
+    }
+    
+    const addComment = async (e) => {
+        e.preventDefault()
+        if(userProfile && comment){
+            setIsPosting(true)
+            const {data} = await axios.put(`${BASE_URL}/api/post/${post._id}`, {
+                userId: userProfile._id,
+                comment
+            })
+
+            setPost({...post, comments: data.comments})
+            setComment('')
+            setIsPosting(false)
         }
     }
 
@@ -99,7 +118,7 @@ const Detail = ({postDetails}: IProps) => {
                 </div>
             </div>
             <div className='relative w-[1000px] md:w-[900px] lg:w-[700px]'>
-                <div className='lg:mt-20 mt-10'>
+                <div className='mt-10'>
                     <Link href={`/profile/${post.postedBy._id}`}>
                         <div className='flex gap-4 mb-4 bg-white w-full pl-10 cursor-pointer'>
                             <Image
@@ -121,7 +140,7 @@ const Detail = ({postDetails}: IProps) => {
                     <div className='px-10'>
                         <p className=' text-md text-gray-600'>{post.caption}</p>
                     </div>
-                    <div className='mt-10 px-10'>
+                    <div className='px-10'>
                         {userProfile && 
                             <LikeButton
                                 likes={post.likes}
@@ -130,6 +149,11 @@ const Detail = ({postDetails}: IProps) => {
                         />}
                     </div>
                     <Comments
+                        comment={comment}
+                        setComment={setComment}
+                        addComment={addComment}
+                        isPosting={isPosting}
+                        comments={post.comments}
                     />
                 </div>
             </div>
