@@ -23,16 +23,44 @@ interface IComment {
 }
 
 const Comments = ({comment, setComment, addComment, comments, isPosting}: IProps) => {
-    const {userProfile} = useAuthStore()
+    const {userProfile, allUsers} = useAuthStore()
     const isPostingComment = false
 
     return (
-        <div className='border-t-2 border-gray-200 pt-4 px-10 mt-4 bg-[#F8F8F8] border-b-2 lg:pb-0 pb-[100px]'>
+        <div className='border-t-2 border-gray-200 px-10 mt-4 bg-[#F8F8F8] border-b-2 pb-[70px]'>
             <div className='overflow-scroll lg:h-[457px]'>
                 {comments?.length ? (
-                    <div>
+                    comments?.map((item: IComment, index: number) => (
+                        <>
+                            {allUsers.map((user: IUser) => (
+                                user._id === (item.postedBy._id || item.postedBy._ref) && (
+                                    <div className=' p-3 items-center' key={index}>
+                                        <Link href={`/profile/${user._id}`}>
+                                            <div className='flex items-start gap-3'>
+                                                <div className='w-12 h-12'>
+                                                    <Image
+                                                        width={40}
+                                                        height={40}
+                                                        className='rounded-full cursor-pointer'
+                                                        src={user.image}
+                                                        alt='user-profile'
+                                                        layout='responsive'
+                                                    />
+                                                </div>
 
-                    </div>
+                                                <p className='flex cursor-pointer gap-1 items-center text-[18px] font-semibold leading-6 text-primary'>
+                                                    {user.userName}{' '}
+                                                </p>
+                                            </div>
+                                        </Link>
+                                        <div>
+                                            <p className='-mt-5 ml-16 text-[16px] mr-8'>{item.comment}</p>
+                                        </div>
+                                    </div>
+                                )
+                            ))}
+                        </>
+                    ))
                 )
                 : (
                     <NoResults text={'No comments'}/>

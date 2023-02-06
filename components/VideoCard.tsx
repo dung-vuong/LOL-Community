@@ -57,9 +57,6 @@ const VideoCard: NextPage<IProps> = ({post}) => {
                                     {post.postedBy.userName}{``}
                                     <GoVerified className='text-blue-400 text-md'/>
                                 </p>
-                                <p className='capitalize font-medium text-xs text-gray-500 hidden md:block'>
-                                    {post.postedBy.userName}
-                                </p>
                             </div>
                         </Link>
                     </div>
@@ -67,10 +64,11 @@ const VideoCard: NextPage<IProps> = ({post}) => {
             </div>
 
             <div className='lg:ml-20 flex gap-4 relative'>
-                <div 
+                <div
                     onMouseEnter={() => setIsHover(true)}
                     onMouseLeave={() => setIsHover(false)}
-                    className='rounded-3xl'>
+                    className='rounded-3xl'
+                >
                     <Link href={`/detail/${post._id}`}>
                         <video
                             loop
@@ -81,7 +79,6 @@ const VideoCard: NextPage<IProps> = ({post}) => {
 
                         </video>
                     </Link>
-
                     {isHover && (
                         <div className='absolute bottom-6 cursor-pointer left-8 md:left-14 lg:left-0 flex gap-10 lg:justify-between w-[100px] md:w-[50px]'>
                             {playing 
