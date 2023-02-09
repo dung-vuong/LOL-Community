@@ -7,7 +7,6 @@ import post from './post'
 import user from './user'
 import comment from './comment'
 import postedBy from './postedBy'
-import team from './team'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -17,6 +16,6 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     /* Your types here! */
-    post, user, comment, postedBy, team
+    post, user, comment, postedBy
   ]),
 })
