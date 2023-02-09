@@ -37,8 +37,8 @@ const VideoCard: NextPage<IProps> = ({post}) => {
     return (
         <div className='flex flex-col border-b-2 border-gray-200 pb-6'>
             <div>
-                <div className='flex gap-3 p-2 cursor-pointer font-semibold rounded'>
-                    <div className='w-8 h-8'>
+                <div className='flex gap-3 p-2 font-semibold rounded'>
+                    <div className='w-8 h-8 cursor-pointer'>
                         <Link href={`/profile/${post.postedBy?._id}`}><>
                             <Image
                                 width={32}
@@ -52,7 +52,7 @@ const VideoCard: NextPage<IProps> = ({post}) => {
                     </div>
                     <div>
                         <Link href={`/profile/${post.postedBy?._id}`}>
-                            <div className='flex items-center gap-2'>
+                            <div className='flex items-center gap-2 cursor-pointer'>
                                 <p className='flex gap-2 items-center md:text-md font-bold text-primary'>
                                     {post.postedBy.userName}{``}
                                     <GoVerified className='text-blue-400 text-md'/>
