@@ -1,6 +1,7 @@
 import axios from "axios"
 import NoResults from "../components/NoResults"
 import VideoCard from "../components/VideoCard"
+import Head from 'next/head'
 import { Video } from '../types'
 import { BASE_URL } from "../utils"
 
@@ -11,15 +12,22 @@ interface IProps {
 const Home = ({videos}: IProps) => {
 	console.log(videos)
 	return (
-		<div className="flex flex-col gap-10 videos h-full">
-			{videos.length ? (
-				videos.map((video: Video) => (
-					<VideoCard post={video} key={video._id}/>
-				))
-			)  : (
-				<NoResults text={'No Video'} />
-			)}
-		</div>
+		<>
+			<Head>
+				<title>LOL Community</title>
+				<meta name='description' content='Come share and discuss with our League of Legends Community' />
+			</Head>
+
+			<div className="flex flex-col gap-10 videos h-full">
+				{videos.length ? (
+					videos.map((video: Video) => (
+						<VideoCard post={video} key={video._id}/>
+					))
+				)  : (
+					<NoResults text={'No Video'} />
+				)}
+			</div>
+		</>
 	)
 }
 
