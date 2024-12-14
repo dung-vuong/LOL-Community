@@ -1,8 +1,7 @@
 # Social Media App
-# Try it now: {link}
-### Use mode Credit Card to make purchase (you won't be hacked, don't worry!): 
+# Try it now: {[link](https://social-media-app-zeta-amber.vercel.app/)}
 
-{screenshot link}
+![image](https://github.com/user-attachments/assets/028671db-1295-49d8-a759-bff52403444c)
 
 ## ⬇️ What I have done ⬇️
 ### The following features included:
